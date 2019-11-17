@@ -1,0 +1,27 @@
+body {
+    background-color: white;
+}
+h1 {
+    color: black;
+    font-family: arial;
+    font-size: 300%;
+	padding: 10px
+	}
+h2 {
+    color: black;
+    font-family: arial;
+    font-size: 200%;
+	padding: 10px
+	}
+h3 {
+    color: black;
+    font-family: arial;
+    font-size: 150%;
+	padding: 10px
+	}
+p {
+    color: black;
+    font-family: arial;
+	padding-left: 10px;
+	padding-right: 10px;
+	}
