@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+  <h1 style="color: blue;">A very simple Adding Machine</h1>
+  <p style="color: blue;">This is our first JavaScript application.</p>
+  <p style="color: blue;">It can add two numbers together.</p>
+  <p style="color: blue;">
+    First number: <input type="text" id="no1Text" value="0">
+  </p>
+  <p style="color: blue;">
+    Second number: <input type="text" id="no2Text" value="0">
+  </p>
+  <p style="color: blue;">
+    <input type="button" value="Add numbers" onclick="doAddition()"></button>
+  </p>
+  <p id="resultParagraph" style="color: blue;">
+    result goes here
+  </p>
+  <script>
+    function doAddition() {
+      let no1Number = Number(no1Text.value);
+      let no2Number = Number(no2Text.value);
+      let result = no1Number + no2Number;
+      let resultDisplay = document.getElementById("resultParagraph");
+      resultDisplay.innerHTML = result;
+  }
+  </script>
+</body>
+
+</html>
