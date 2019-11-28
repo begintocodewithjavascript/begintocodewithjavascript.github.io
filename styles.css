@@ -24,4 +24,12 @@ p {
     font-family: arial;
 	padding-left: 10px;
 	padding-right: 10px;
-	}
+    }
+    
+ul {
+    font-family: arial;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 50px;
+    line-height: 170%;
+    }
