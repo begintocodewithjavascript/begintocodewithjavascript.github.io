@@ -8,19 +8,15 @@
 <body>
   <canvas id="canvas" width="800" height="600">
     This browser does not support a canvas.
-  </canvas> 
+  </canvas>
   <script>
 
 
-    class Sprite
-    {
-      constructor(imagePath, ctx, x, y, width, height)
-      {
+    class Sprite {
+      constructor(imagePath, ctx, x, y, width, height) {
         this.loaded = false;
         this.image = new Image();
-        this.image.onload = function()
-        {
-          this.loaded = true;
+        this.image.onload = function () {
         }
         this.image.src = imagePath;
         this.ctx = ctx;
@@ -30,87 +26,235 @@
         this.height = height;
       }
 
-      draw()
-      {
+      draw() {
         this.ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
       }
 
-      update()
-      {
+      update(time) {
+      }
 
+      keypressed(key) {
+      }
+
+      intersects(sprite) {
+        if ((sprite.x + sprite.width) < this.x) return false;
+        if ((sprite.y + sprite.height) < this.y) return false;
+        if ((this.x + this.width) < sprite.x) return false;
+        if ((this.y + this.height) < sprite.y) return false;
+        return true;
       }
     }
 
-    class BallSprite extends Sprite{
-        constructor(imagePath, ctx, x, y, width, height,xSpeed, ySpeed, boxX, boxY)
-        {
-          super(imagePath, ctx, x, y, width, height);
-          this.boxX = boxX;
-          this.boxY = boxY;
-          this.xSpeed = xSpeed;
-          this.ySpeed = ySpeed; 
+    class BallSprite extends Sprite {
+
+      constructor(imagePath, ctx, x, y, width, height, xSpeed, ySpeed, boxX, boxY) {
+        super(imagePath, ctx, x, y, width, height);
+        this.boxX = boxX;
+        this.boxY = boxY;
+        this.xSpeed = xSpeed;
+        this.ySpeed = ySpeed;
+      }
+
+      moveLeft()
+      {
+        this.xSpeed = Math.abs(this.xSpeed) * -1;
+      }
+
+      moveRight()
+      {
+        this.xSpeed = Math.abs(this.xSpeed);
+      }
+
+      update(time) {
+        super.update(time);
+        this.x += (this.xSpeed * time);
+        this.y += (this.ySpeed * time);
+        if ((this.x + this.width) > this.boxX) this.xSpeed = Math.abs(this.xSpeed) * -1;
+        if (this.x < 0) this.xSpeed = Math.abs(this.xSpeed);
+        if ((this.y + this.height) > this.boxY) this.ySpeed = Math.abs(this.ySpeed) * -1;
+        if (this.y < 0) this.ySpeed = Math.abs(this.ySpeed);
+      }
+    }
+
+    class PaddleSprite extends Sprite {
+
+      constructor(imagePath, ctx, x, y, width, height, xSpeed, ySpeed, boxX, boxY, upKey, downKey) {
+        super(imagePath, ctx, x, y, width, height);
+        this.boxX = boxX;
+        this.boxY = boxY;
+        this.xSpeed = xSpeed;
+        this.ySpeed = ySpeed;
+        this.upKey = upKey;
+        this.downKey = downKey;
+        this.movingUp = false;
+        this.movingDown = false;
+      }
+
+      keyDown(key) {
+        if (key == this.upKey) this.movingUp = true;
+        if (key == this.downKey) this.movingDown = true;
+      }
+
+      keyUp(key) {
+        if (key == this.upKey) this.movingUp = false;
+        if (key == this.downKey) this.movingDown = false;
+      }
+
+      update(time) {
+
+        super.update(time);
+
+        if (this.movingDown) {
+          this.y += (this.ySpeed * time);
+          if ((this.y + this.height) > this.boxY) this.y = this.boxY - this.height;
         }
 
-        update()
-        {
-          super.update();
-          this.x += this.xSpeed;
-          this.y += this.ySpeed;
-          if((this.x+this.width)>this.boxX) this.xSpeed = Math.abs(this.xSpeed) * -1;
-          if(this.x<0) this.xSpeed = Math.abs(this.xSpeed);
-          if((this.y+this.height)>this.boxY) this.ySpeed = Math.abs(this.ySpeed) * -1;
-          if(this.y<0) this.ySpeed = Math.abs(this.ySpeed);
+        if (this.movingUp) {
+          this.y -= (this.ySpeed * time);
+          if (this.y < 0) this.y = 0;
         }
+      }
     }
 
-    function clearScreen()
-    {
-      window.ctx.fillStyle = "blue";
-      window.ctx.fillRect(0,0,canvas.width,canvas.height);
-    }
-    
-    function updateSprite(sprite)
-    {
-      sprite.X = sprite.X + sprite.XSpeed;
-      sprite.Y = sprite.Y + sprite.Yspeed;
+
+    class Game {
+
+      keyDown(keycode) {
+        console.log("pressed: " + keycode);
+      }
+
+      constructor(canvas) {
+
+        this.canvas = canvas;
+        this.lastTime = -1;
+
+        if (canvas.getContext) {
+          this.ctx = canvas.getContext("2d");
+          this.ctx.font = "30px Comic Sans MS";
+          this.ctx.fillStyle = "red";
+          this.ctx.textAlign = "center";
+
+          this.ball = new BallSprite("images/ball.png", this.ctx, 0, 0, 30, 30, 150, 150, 800, 600);
+          this.lpaddle = new PaddleSprite("images/lpaddle.png", this.ctx, 20, 0, 20, 80, 150, 150, 800, 600, 65, 66);
+          this.rpaddle = new PaddleSprite("images/rpaddle.png", this.ctx, 760, 0, 20, 80, 150, 150, 800, 600, 67, 68);
+        }
+        else {
+          alert("No canvas available");
+        }
+      }
+
+      resetGame ()
+      {
+        this.lscore=0;
+        this.rscore=0;
+      }
+
+      clearScreen() {
+        this.ctx.fillStyle = "blue";
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+      }
+
+      drawScores() {
+        this.ctx.fillStyle = "red";
+        this.ctx.fillText("Left:" + this.lscore + " Right: " + this.rscore, 400, 300);        
+      }
+
+      updateSprites(timestamp) {
+        this.ball.update(timestamp);
+        this.lpaddle.update(timestamp);
+        this.rpaddle.update(timestamp);
+      }
+
+      drawGame(timestamp) {
+        this.clearScreen();
+        this.drawScores();
+        this.ball.draw();
+        this.lpaddle.draw();
+        this.rpaddle.draw();
+      }
+
+      updateGame(timestamp) {
+        // wait for the next tick so that we have a proper timestamp
+
+        if (this.lastTime == -1) {
+          this.lastTime = timestamp;
+          return;
+        }
+
+        var elapsedTime = timestamp - this.lastTime;
+        this.lastTime = timestamp;
+
+        this.updateSprites(elapsedTime / 1000);
+
+        // game logic
+
+        // bounce off the paddles
+
+        if(this.ball.intersects(this.lpaddle)) this.ball.moveRight();
+
+        if(this.ball.intersects(this.rpaddle)) this.ball.moveLeft();
+
+        if(this.ball.x <= 0){
+          this.rscore++;
+        }
+
+        if((this.ball.x + this.ball.width) >= 800){
+          this.lscore++;
+        }
+        this.drawGame();
+      }
+
+      keyDown(keycode) {
+        console.debug("Key pressed " + keycode);
+        this.lpaddle.keyDown(keycode);
+        this.rpaddle.keyDown(keycode);
+      }
+
+      keyUp(keycode) {
+        console.debug("Key released " + keycode);
+        this.lpaddle.keyUp(keycode);
+        this.rpaddle.keyUp(keycode);
+      }
+
     }
 
-    function updateGame()
-    {
-      window.ball.update();
-    }
+    function init() {
 
-    function drawGame(timestamp)
-    {
-      clearScreen();
-      window.ball.draw();
-    }
-
-    function runGame()
-    {
-      updateGame();
-      drawGame();
-//      window.requestAnimationFrame(drawGame);
-      setTimeout( runGame, 10);
-    }
-
-    function init()
-    {
       var canvas = document.getElementById("canvas");
 
-      if(canvas.getContext)
-      {
-        window.ctx = canvas.getContext("2d");
-        window.ball = new BallSprite("images/ball.png",window.ctx, 0,0,30,30,4,4,800,600);
-        clearScreen();
-      }
-      else
-      {
-        alert("No canvas available");
+      let game = new Game(canvas);
+
+      game.resetGame();
+
+      function runGame(timestamp) {
+        game.updateGame(timestamp);
+        window.requestAnimationFrame(runGame);
       }
 
-      runGame();
+      window.addEventListener("keydown", function keydown(e) {
+        var keycode = e.which || window.event.keycode;
+        //  Supress further processing of left/right/space (37/29/32)
+        if (keycode == 37 || keycode == 39 || keycode == 32) {
+          e.preventDefault();
+        }
+        game.keyDown(keycode);
+
+      });
+
+      window.addEventListener("keyup", function keyup(e) {
+        var keycode = e.which || window.event.keycode;
+        //  Supress further processing of left/right/space (37/29/32)
+        if (keycode == 37 || keycode == 39 || keycode == 32) {
+          e.preventDefault();
+        }
+        game.keyUp(keycode);
+
+      });
+
+
+      window.requestAnimationFrame(runGame);
     }
+
     onload = init;
   </script>
 </body>
