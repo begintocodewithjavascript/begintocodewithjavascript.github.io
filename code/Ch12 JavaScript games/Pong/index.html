@@ -86,8 +86,8 @@
     function runGame()
     {
       updateGame();
-      window.requestAnimationFrame(drawGame);
-      setTimeout( runGame, 10);
+      drawGame();
+      window.requestAnimationFrame(runGame);
     }
 
     function init()
