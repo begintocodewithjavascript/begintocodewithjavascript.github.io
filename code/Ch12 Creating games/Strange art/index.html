@@ -82,7 +82,7 @@
     {
       window.ball.draw();
       window.ball.update();
-      setTimeout( runGame, 20);
+      window.requestAnimationFrame(runGame);
     }
 
     function init()
