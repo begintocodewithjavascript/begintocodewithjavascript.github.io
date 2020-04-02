@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Input to a form</title>
+  </head>
+
+<body>
+    <form onsubmit="doForm();return false;">
+        Enter your name: <input type="text" value="your name here"><br>
+        Enter your age: <input type="text" value="0"><br>
+        <input type="submit" value="Submit">
+      </form>
+        <script>
+    function doForm() {
+      alert("Submitted");
+    }
+  </script>
+</body>
+</html>

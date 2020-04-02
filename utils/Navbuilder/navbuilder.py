@@ -7,7 +7,7 @@
 import os
 
 print("Starting")
-filename = "index.template"
+filename = "indextemplate.html"
 with open(filename) as f:
     templatePage = f.read()
 
