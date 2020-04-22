@@ -1,3 +1,3 @@
 # Chapter 1 Running JavaScript
 
-These example programs demonstrate a simple JavaScript application that can run within a web browser.
+There is only one example in this folder. It is the Hello.html page that contains the "secret" JavaScript program.

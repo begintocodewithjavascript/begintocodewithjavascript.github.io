@@ -1,5 +1,5 @@
 # Builds an index file for the links to the example code
-# The original index is in index.template
+# The original index is in indextemplate.html
 # We replace a placeholder with the index information.
 # This is not elegant, but it does work.
 # Rob Miles 2019
@@ -18,9 +18,11 @@ links = "<ul>"
 # Spin through the files in the directory
 for dirName, subdirList, fileList in os.walk(rootDir):
     for fname in fileList:
+        print(dirName)
         if fname=="index.html":
             # there is an index file, link to it
             truncDir = dirName[len(rootDir)+1:]
+            print("     ",truncDir)
             pagelink = "<a href=\"code\\" +truncDir+"\\"+fname + "\">"+truncDir+ "</a>"
             pagelink = pagelink.replace('\\','/')
             pagelink = "<li>" + pagelink + "</li>"
