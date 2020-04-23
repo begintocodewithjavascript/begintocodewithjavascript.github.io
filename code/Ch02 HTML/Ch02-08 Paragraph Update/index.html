@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Ch02-08 Paragraph Update</title>
+</head>
+
+<body>
+  <h1>Paragraph Update</h1>
+  <p>
+    <input type="text" id="inputText" value="">    
+    <button onclick="doUpdateParagraph()">Update the Paragraph</button>
+    <p id="outputParagraph"></p>    
+  </p>
+
+  <script>
+    function doUpdateParagraph() {
+      var inputElement = document.getElementById("inputText");
+      var outputElement = document.getElementById("outputParagraph");
+      var message = inputElement.value;
+      outputElement.innerHTML = message;
+    }
+  </script>
+</body>
+</html>
