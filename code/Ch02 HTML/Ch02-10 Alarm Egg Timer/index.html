@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Ch02-10 Alarm Egg Timer</title>
+</head>
+
+<body>
+  <h1>Egg Timer</h1>
+
+  <audio id="alarmAudio">
+    <source src="everythingSound.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+  </audio>
+
+  <p>
+    <button onclick="doStartTimer()">Start the timer</button>
+  </p>
+
+  <script>
+    function doStartTimer() {
+      setTimeout(doEndTimer,5*60*1000);
+    }
+
+function doEndTimer() {
+  alarmSoundElement = document.getElementById("alarmAudio");
+  alarmSoundElement.play();
+}
+  </script>
+</body>
+</html>

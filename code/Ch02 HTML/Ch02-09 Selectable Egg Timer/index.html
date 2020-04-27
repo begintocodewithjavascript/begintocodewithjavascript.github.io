@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Ch02-09 Egg Timer</title>
+</head>
+
+<body>
+  <h1>Selectable Egg Timer</h1>
+  <p>
+    <button onclick="doStartNormalTimer()">Normal boiled</button>
+  </p>
+  <p>
+    <button onclick="doStartSoftTimer()">Soft boiled</button>
+  </p>
+  <p>
+    <button onclick="doStartBulletTimer()">Bullet boiled</button>
+  </p>
+
+  <p id=timerStatusParagraph>Timer idle</p>
+
+  <script>
+    // Starts the egg timer
+    function doStartNormalTimer() {
+      setTimeout(doEndTimer,5*60*1000);
+      var statusElement = document.getElementById("timerStatusParagraph");
+      statusElement.textContent="Timing a normal egg"
+    }
+
+    function doStartSoftTimer() {
+      setTimeout(doEndTimer,4*60*1000);
+      var statusElement = document.getElementById("timerStatusParagraph");
+      statusElement.textContent="Timing a soft boiled egg"
+    }
+
+    function doStartBulletTimer() {
+      setTimeout(doEndTimer,10*60*1000);
+      var statusElement = document.getElementById("timerStatusParagraph");
+      statusElement.textContent="Timing a bullet boiled egg"
+    }
+
+
+    // Called when the timeout occurs
+    function doEndTimer() {
+      alert("Your egg is ready");
+      var statusElement = document.getElementById("timerStatusParagraph");
+      statusElement.textContent="Timing complete"
+    }
+  </script>
+</body>
+</html>

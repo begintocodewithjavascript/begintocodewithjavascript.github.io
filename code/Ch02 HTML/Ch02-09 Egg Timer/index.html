@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Ch02-09 Egg Timer</title>
+</head>
+
+<body>
+  <h1>Egg Timer</h1>
+  <p>
+    <button onclick="doStartTimer()">Start the timer</button>
+  </p>
+
+  <script>
+    function doStartTimer() {
+      setTimeout(doEndTimer,5*1000);        
+    }
+
+    function doEndTimer() {
+      alert("Your egg is ready");
+    }
+  </script>
+</body>
+</html>
