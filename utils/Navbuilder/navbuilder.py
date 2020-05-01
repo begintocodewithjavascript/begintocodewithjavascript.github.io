@@ -7,12 +7,13 @@
 import os
 
 print("Starting")
-filename = "indextemplate.html"
+filename = "utils/Navbuilder/indextemplate.html"
 with open(filename) as f:
     templatePage = f.read()
 
 # Set the directory you want to start from
-rootDir = '../../code'
+rootOffset = ""
+rootDir = 'code'
 links = "<ul>"
 
 # Spin through the files in the directory
@@ -34,6 +35,6 @@ links = links + "</ul>"
 finalPage = templatePage.replace("#LINKS#", links)
 print(finalPage)
 # save the new index
-text_file = open("../../index.html", "w")
+text_file = open("index.html", "w")
 text_file.write(finalPage)
 text_file.close()

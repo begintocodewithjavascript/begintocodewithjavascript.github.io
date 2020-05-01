@@ -33,3 +33,10 @@ ul {
     margin-left: 50px;
     line-height: 170%;
     }
+
+strong {
+    font-family: arial;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-emphasis: strong;
+    }
