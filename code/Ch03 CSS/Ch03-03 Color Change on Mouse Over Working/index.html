@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Ch03-03 Color Change on Mouse Over Working</title>
+</head>
+<body>
+<p onmouseover="doMouseOver()" onmouseout="doMouseOut()" id="mouseOverPar">Roll your mouse over this paragraph.</p>
+<script>
+    function doMouseOver()
+    {
+        var par = document.getElementById("mouseOverPar");
+        par.style="color: red";
+    }
+    function doMouseOut()
+    {
+        var par = document.getElementById("mouseOverPar");
+        par.style="color: black";
+    }
+</script>
+</body>
+</html>

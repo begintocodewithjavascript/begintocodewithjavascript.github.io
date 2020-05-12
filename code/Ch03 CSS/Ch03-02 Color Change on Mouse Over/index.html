@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Ch03-02 Color Change on Mouse Over</title>
+</head>
+<body>
+<p onmouseover="doMouseOver()" id="mouseOverPar">Roll your mouse over this paragraph.</p>
+<script>
+    function doMouseOver()
+    {
+        var par = document.getElementById("mouseOverPar");
+        par.style="color: red";
+    }
+</script>
+</body>
+</html>
