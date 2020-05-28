@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<!-- Rob's Pizza Calculator Page Version 1.0 -->
+<head>
+  <title>Ch04-06 Pizzacalc Version 2 Integer Pizzas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <h1>&#x1f355;   Pizza Calculator</h1>
+  <p>Calculates the number of pizzas you&rsquo;ll need.</p>
+  <p>
+    Number of students: <input type="number" id="noOfStudentsText" value="0">
+  </p>
+  <p>
+    <input type="button" value="Calculate pizzas" onclick="doPizzaCalc()"></button>
+  </p>
+
+  <p id="resultParagraph">
+    Result displayed here.
+  </p>
+
+  <script>
+    function doPizzaCalc() {
+
+      var noOfStudentsElement = document.getElementById("noOfStudentsText");
+      var noOfStudentsText = noOfStudentsElement.value;
+      var noOfStudents = Number(noOfStudentsText);
+
+    /* Based on each pizza feeding 1.5 students. We divide the number
+      of students by 1.5 to get the number of pizzas. Then we drop 
+      the fractional part and add 1 to round up the number 
+      Note that this means we might buy slightly too much
+      pizza for some numbers of students.
+    */
+
+      var noOfPizzas = Math.floor(noOfStudents / 1.5) + 1;
+
+      var resultElement = document.getElementById("resultParagraph");
+      resultElement.innerText = "You need " + noOfPizzas + " pizzas.";
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Ch04-07 Fahrenheit to Centigrade</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <h1>&#x1f321;&#xfe0f; Fahrenheit to Centigrade</h1>
+  <p>Converts from Fahrenheit to Centigrade.</p>
+  <p>
+    Temperature in Fahrenheit: <input type="number" id="fahrenheitText" value="0">
+  </p>
+  <p>
+    <input type="button" value="Convert to Centigrade" onclick="doTempConvert()"></button>
+  </p>
+
+  <p id="resultParagraph">
+    Result displayed here.
+  </p>
+
+  <script>
+    function doTempConvert() {
+
+      var fahrenheitElement = document.getElementById("fahrenheitText");
+      var fahrenheitText = fahrenheitElement.value;
+      var fahrenheit = Number(fahrenheitText);
+
+      var centigrade = (fahrenheit-32)/1.8; // using standard conversion
+
+      var resultElement = document.getElementById("resultParagraph");
+      var resultString = fahrenheit + " degrees Fahrenheit is " + centigrade.toFixed(1) + " degrees Centigrade " + centigrade;
+      resultElement.innerText = resultString;
+    }
+  </script>
+</body>
+
+</html>

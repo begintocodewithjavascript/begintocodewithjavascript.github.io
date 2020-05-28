@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Ch04-08 Totalizer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <h1>&#x1f9ee; Totalizer</h1>
+  <p>
+    Value to add: <input type="number" id="valueText" value="0">
+  </p>
+  <p>
+    <input type="button" value="Add to total" onclick="doAddToTotal()"></button>
+  </p>
+  <p id="resultParagraph">
+    Total is 0
+  </p>
+  <p>
+    <input type="button" value="Set total to 0" onclick="doZeroTotal()"></button>
+  </p>
+
+  <script>
+
+    var total = 0; // Global variable to hold the total
+
+    /* This function reads the value from the valueText element
+       and adds it to the global total value */
+    function doAddToTotal() {
+
+      var valueElement = document.getElementById("valueText");
+      var valueText = valueElement.value;
+      var value = Number(valueText);
+
+      total = total + value; // update the global total value
+
+      // Display the updated total
+      var resultElement = document.getElementById("resultParagraph");
+      var resultString = "Total is " + total;
+      resultElement.innerText = resultString;
+    }
+
+    /* This function clears the total value and updates the display
+    */
+    function doZeroTotal() {
+      total = 0; // set the global total to 0
+
+      // update the display
+      var resultElement = document.getElementById("resultParagraph");
+      resultElement.innerText = "Total is 0";
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<!-- Rob's High and Low game Version 1.0 -->
+<head>
+  <title>Ch04-10 High and Low</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <h1>&#128256; High and Low</h1>
+  <h1>Bluff and beat the odds</h1>
+  <h2>Game Instructions</h2>
+  <p>
+    All stand up and someone press Start to start the round.
+  </p>
+  <p>
+    The start number will be displayed. (1-10)
+  </p>
+  <p>
+    Stand on the left if you think the end number will be bigger. 
+  </p>
+  <p>
+    Stand on the right if you think the end number will be equal or smaller.  
+  </p>
+  <p>
+    After 10 seconds the end number will be displayed. (0-11)  
+  </p>
+  <p>
+    Everyone who was wrong is out and sits down.  
+  </p>
+  <p>
+    <input type="button" value="START" onclick="doStartGame()" class="startButton"></button>
+  </p>
+  <p id="statusParagraph"; class="gameStatus">
+  </p>
+  
+  <!-- Sound element for the ticking clock -->
+  <audio id="tickAudio">
+    <source src="tick-track.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Sound element for the clock end sound -->
+  <audio id="dingAudio">
+    <source src="bouncy-ding.mp3" type="audio/mpeg">
+  </audio>
+
+
+  <script>
+
+    var startNumber; // global variable holding the first number picked
+
+    /* Called to start the game.
+       Picks a start number and displays it. Then starts the
+       clock sound effect and sets the timout for 10 seconds
+       */
+    function doStartGame() {
+
+      // set the start number in the range 1-10
+      startNumber = Math.floor(Math.random()*10)+1;
+
+      // display the start number
+      var statusElement = document.getElementById("statusParagraph");
+      statusElement.innerText="Start:" + startNumber;
+
+      // start the clock ticking from the start of the sample
+      tickSoundElement = document.getElementById("tickAudio");
+      tickSoundElement.currentTime=0;
+      tickSoundElement.play();
+
+      // set the timeout for 10 seconds
+      setTimeout(onGameTimeOut, 10 * 1000);
+
+    }
+    
+    /* Called by the timeout at the end of the game
+       Stops the clock playing and plays the ding
+       Picks the end number and displays it along with the
+       start number.
+       */
+    function onGameTimeOut() {
+
+      // stop the ticking clock
+      tickSoundElement = document.getElementById("tickAudio");
+      tickSoundElement.pause();
+
+      // play the "ding"
+      dingSoundElement = document.getElementById("dingAudio");
+      dingSoundElement.play();
+
+
+      /* pick an end number betweeen 0 and 11
+        12 is never picked becuase random never returns 1
+        */
+      var endNumber = Math.floor(Math.random()*12);
+
+      // Display the start and end numbers
+      var statusElement = document.getElementById("statusParagraph");
+      statusElement.innerText="Start:" + startNumber + " End:" + endNumber;
+    }
+  </script> 
+</body>
+
+</html>

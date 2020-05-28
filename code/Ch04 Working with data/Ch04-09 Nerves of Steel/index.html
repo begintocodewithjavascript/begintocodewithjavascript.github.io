@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<!-- Rob's Nerves of Steel game Version 1.0 -->
+<head>
+  <title>Ch04-09 Nerves of Steel</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <h1>&#9202;&#65039; Nerves of Steel</h1>
+  <h1>Be the last player to sit down and win. </h1>
+  <h2>Game Instructions</h2>
+  <p>
+    All stand up and someone press Start to start the timer.
+  </p>
+  <p>
+    The timer will tick for between 5 and 20 seconds.
+  </p>
+  <p>
+    Sit down just before you think the timer will end. 
+  </p>
+  <p>
+    Last player to sit down wins. Everyone else loses.  
+  </p>
+  <p>
+    <input type="button" value="START" onclick="doStartGame()" class="startButton"></button>
+  </p>
+  <p id="statusParagraph"; class="gameStatus">
+  </p>
+
+  <!-- Sound element for the ticking clock -->
+  <audio id="tickAudio">
+    <source src="tick-track.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Sound element for the clock end sound -->
+  <audio id="dingAudio">
+    <source src="bouncy-ding.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+
+    /* Called to start the game.
+       Picks a delay time. Then starts the
+       clock sound effect and sets the timout for the delay time
+       */
+       function doStartGame() {
+
+      // update the status to "Ticking...."
+      var statusElement = document.getElementById("statusParagraph");
+      statusElement.innerText="Ticking....";
+
+      // Play the ticking sound effect from the beginning
+      tickSoundElement = document.getElementById("tickAudio");
+      tickSoundElement.currentTime=0;
+      tickSoundElement.play();
+
+      // Calculate a delay between 5 and 15 seconds
+      var delayInSeconds = Math.floor(Math.random()*15)+5;
+
+      // Set a timeout for the delay. Note that setTimeout
+      // works in thousandths of a second
+      setTimeout(onGameTimeOut, delayInSeconds * 1000);
+
+    }
+
+    /* Called by the timeout at the end of the game
+       Stops the clock playing and plays the ding
+       Clears the status display
+       */
+       function onGameTimeOut() {
+
+      // stop the clock ticking
+      tickSoundElement = document.getElementById("tickAudio");
+      tickSoundElement.pause();
+
+      // play the ding sound effect
+      dingSoundElement = document.getElementById("dingAudio");
+      dingSoundElement.play();
+
+      // Clear the status display to an empty string
+      var statusElement = document.getElementById("statusParagraph");
+      statusElement.innerText="";
+    }
+  </script>
+</body>
+
+</html>
