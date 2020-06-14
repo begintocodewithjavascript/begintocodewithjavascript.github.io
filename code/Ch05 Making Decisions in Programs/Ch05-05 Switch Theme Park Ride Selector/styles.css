@@ -1,0 +1,39 @@
+.menuHeading {
+    font-size: 4em;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: red;
+    text-shadow: 3px 3px 0 blue, 10px 10px 10px darkblue;
+}
+
+.menuText,.menuRideList, .menuButton, .menuInput, .menuYes, .menuNo
+{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 2em;
+    color:black;
+}
+
+.menuText {
+    margin: 10px;
+}
+
+.menuRideList{
+    margin: 20px;
+}
+
+.menuInput {
+    font-size: 1em;
+    width: 2em;
+}
+
+.menuButton {
+    margin-left: 20px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.menuYes {
+    color: green;
+}
+
+.menuNo{
+    color: red;
+}

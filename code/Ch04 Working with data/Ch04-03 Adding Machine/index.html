@@ -15,7 +15,7 @@
   Second number: <input type="text" id="no2Text" value="0">
 </p>
 <p>
-  <input type="button" value="Add numbers" onclick="doAddition()"></button>
+  <button onclick="doAddition()">Add numbers</button>
 </p>
 
 <p id="resultParagraph">
@@ -30,8 +30,8 @@ function doAddition() {
   var no1Number = Number(no1Text);
   
   var no2Element = document.getElementById("no2Text");
-  var no2Text= no2Element;
-  var no2Number = Number(no2Element.value);
+  var no2Text = no2Element.value;
+  var no2Number = Number(no2Text);
 
   var result = no1Number + no2Number;
 

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Ch05-06 Fortune Teller</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <h1>&#128302; Fortune Teller</h1>
+  <p id="resultParagraph">
+    Click the button for your fortune. If you dare.
+  </p>
+  <p>
+    <button class="buttonClass" onclick="doShowFortune()">Tell my fortune</button>
+  </p>
+
+  <script>
+
+    /* This function reads the value from the valueText element
+       and adds it to the global total value */
+    function doShowFortune() {
+
+var resultString = "You will meet a ";
+
+if(Math.random()>0.5)
+  resultString = resultString+"tall ";
+else
+  resultString = resultString+"short ";
+
+if(Math.random()>0.5)
+  resultString = resultString+"blonde ";
+else
+  resultString = resultString+"dark ";
+
+  resultString = resultString + "stranger.";
+
+        var resultElement = document.getElementById("resultParagraph");
+      resultElement.innerText = resultString;
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Ch05-03 Alarm Alert with sound block</title>
+</head>
+
+<body onload="doCheckAlarm()">
+
+    <!-- Sound element for the alarm -->
+    <audio id="alarmAudio">
+        <source src="everythingSound.mp3" type="audio/mpeg">
+    </audio>
+
+    <p id="alarmMessagePar" style="font-size:10em;font-family: 'Courier New', Courier, monospace;text-align: center;">
+    </p>
+
+    <script>
+        function doCheckAlarm() {
+            var currentDate = new Date();
+            var hours = currentDate.getHours();
+            var mins = currentDate.getMinutes();
+
+            var itIsTimeToGetUp = (hours > 7) || (hours == 7 && minutes > 29);
+
+            var outputElement = document.getElementById("alarmMessagePar");
+
+            if (itIsTimeToGetUp) {
+                alarmAudio.play();
+                outputElement.textContent = "It is time to get up!";
+            }
+            else
+                outputElement.textContent = "You can stay in bed";
+        }
+    </script>
+</body>
+
+</html>

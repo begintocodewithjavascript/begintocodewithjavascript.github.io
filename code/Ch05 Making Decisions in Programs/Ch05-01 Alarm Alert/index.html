@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Ch05-01 Alarm Alert</title>
+</head>
+
+<body onload="doCheckAlarm()">
+    <script>
+        function doCheckAlarm() {
+            var currentDate = new Date();
+            var hours = currentDate.getHours();
+            var mins = currentDate.getMinutes();
+            
+            var itIsTimeToGetUp = (hours>7) || (hours==7 && minutes>29); 
+            
+            if(itIsTimeToGetUp) alert("It is time to get up!");
+        }
+    </script>
+</body>
+
+</html>

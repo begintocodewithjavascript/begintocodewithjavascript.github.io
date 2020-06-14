@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Ch05-04 Theme Park Ride Selector</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src = "themepark.js" ></script>
+</head>
+
+<body>
+    <p class="menuHeading">CRAZYADVENTUREWONDERFUNLAND</p>
+    <p class="menuText">These are the rides that are available</p>
+    <ol class="menuRideList">
+        <li>Scenic River Cruise</li>
+        <li>Carnival Carousel</li>
+        <li>Jungle Adventure Water Splash</li>
+        <li>Downhill Mountain Run</li>
+        <li>The Regurgitator</li>
+    </ol>
+    <p class="menuText">Enter the number of the ride you want to go on: 
+        <input class="menuInput" type="number" id="rideNoText" value="1" min="1" max="5"> </p> 
+    <p class="menuText">Enter your age:  
+        <input class="menuInput" type="number" id="ageText" value="18" min="0" max="100"> </p>
+
+    <button class="menuButton" onclick="doCheckAge()">Check your age</button>
+
+    <p class="menuAnswer" id="menuAnswerPar"></p>    
+</body>
+
+</html>
