@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Ch06-01 Broken Ride Selector</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="themepark.js"></script>
+</head>
+
+<body>
+    <p class="menuHeading">CRAZYADVENTUREWONDERFUNLAND</p>
+    <p class="menuText">These are the rides that are available</p>
+    <ul class="menuRideList" id="rideList">
+        <li id="scenicRiver">Scenic River Cruise</li>
+        <li id="carnivalCarousel">Carnival Carousel</li>
+        <li id="jungleAdventure">Jungle Adventure Water Splash</li>
+        <li id="downhillMountain">Downhill Mountain Run</li>
+        <li id="regurgitator">The Regurgitator</li>
+    </ul>
+    <p class="menuText">Enter your age:
+        <input class="menuInput" type="number" id="ageText" value="18" min="0" max="100"> </p>
+
+    <button class="menuButton" onclick="doCheckAge()">Check your rides</button>
+</body>
+
+</html>

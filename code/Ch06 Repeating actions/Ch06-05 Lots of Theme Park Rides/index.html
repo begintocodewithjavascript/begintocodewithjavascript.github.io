@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Ch06-05 Lots of Theme Park rides</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="themepark.js"></script>
+</head>
+
+<body>
+    <p class="menuHeading">CRAZYADVENTUREWONDERFUNLAND</p>
+    <p class="menuText">These are the rides that are available</p>
+    <ul class="menuRideList" id="rideList">
+        <li data-MinAge="0" data-MaxAge="120">Scenic River Cruise</li>
+        <li data-MinAge="3" data-MaxAge="120">Carnival Carousel</li>
+        <li data-MinAge="6" data-MaxAge="120">Jungle Adventure Water Splash</li>
+        <li data-MinAge="8" data-MaxAge="120">Haunted House</li>
+        <li data-MinAge="9" data-MaxAge="120">Killer Accountants</li>
+        <li data-MinAge="12" data-MaxAge="120">Downhill Mountain Run</li>
+        <li data-MinAge="15" data-MaxAge="70">Swamp Monster Escape</li>
+        <li data-MinAge="12" data-MaxAge="70">The Regurgitator</li>
+    </ul>
+    <p class="menuText">Enter your age:
+        <input class="menuInput" type="number" id="ageText" value="18" min="0" max="100"> </p>
+
+    <button class="menuButton" onclick="doCheckAge()">Check your rides</button>
+</body>
+
+</html>

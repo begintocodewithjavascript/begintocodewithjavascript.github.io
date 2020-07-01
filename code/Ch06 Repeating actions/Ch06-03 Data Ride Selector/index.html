@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Ch06-03 Data Ride Selector</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src = "themepark.js" ></script>
+</head>
+
+<body>
+    <p class="menuHeading">CRAZYADVENTUREWONDERFUNLAND</p>
+    <p class="menuText">These are the rides that are available</p>
+<ul class="menuRideList" id="rideList">
+    <li data-MinAge="0" data-MaxAge="120" id="scenicRiver">Scenic River Cruise</li>
+    <li data-MinAge="3" data-MaxAge="120" id="carnivalCarousel">Carnival Carousel</li>
+</ul>
+    <p class="menuText">Enter your age:  
+        <input class="menuInput" type="number" id="ageText" value="18" min="0" max="100"> </p>
+
+        <button class="menuButton" onclick="doCheckAge()">Check your rides</button>
+</body>
+
+</html>
