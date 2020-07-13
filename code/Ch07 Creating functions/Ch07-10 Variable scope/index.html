@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Ch07-10 Variable Scope</title>
+</head>
+
+<body>
+  <h1>Variable scope</h1>
+  <p>
+  <p id="outputParagraph"></p>
+  </p>
+
+  <script>
+
+function fvar2() {
+  var i=99;
+}
+
+function fvar1(){
+  var i=0;
+
+  fvar2();
+
+  console.log("The value of i is:" + i);
+}
+
+
+function f2() {
+  i=99;
+}
+
+function f1(){
+  i=0;
+
+  f2();
+
+  console.log("The value of i is:" + i);
+}
+
+function letDemo(){
+  var i=0;
+  {
+    let i=1;
+    var j=2;
+    console.log("The value of let i is:"+i);
+  }
+
+  console.log("The value of var i is:"+i);
+  console.log("The value of var j is:"+j);
+}
+
+  </script>
+</body>
+
+</html>

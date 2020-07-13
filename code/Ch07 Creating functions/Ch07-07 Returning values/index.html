@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Ch07-07 Returning values</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <h1>Digital Dice</h1>
+  <p>
+    <button onclick="doRollDice()">Roll the Dice</button>
+    <p id="outputParagraph" class="numberDisplay">Press the roll button</p>    
+  </p>
+
+  <script>
+
+  function getDiceSpots() {
+      var spots = Math.floor(Math.random() * 6) + 1;
+      return spots;
+    }
+
+  function doRollDice() {
+      var outputElement = document.getElementById("outputParagraph");
+      var spots = getDiceSpots();
+      var message = "Rolled: " + spots;
+      outputElement.textContent = message;
+    }
+  </script>
+</body>
+</html>

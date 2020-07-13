@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Ch07-01 Greeter Function</title>
+</head>
+
+<body>
+  <h1>Greeter</h1>
+  <p>
+  <p id="outputParagraph"></p>
+  </p>
+
+  <script>
+    function greeter() {
+      var outputElement = document.getElementById("outputParagraph");
+      outputElement.textContent = "Hello";
+    }
+    function m2() {
+      console.log("the");
+    }
+
+    function m3() {
+      console.log("sat on");
+      m2();
+    }
+
+    function m1() {
+      m2();
+      console.log("cat");
+      m3();
+      console.log("mat");
+    }
+
+  </script>
+</body>
+
+</html>

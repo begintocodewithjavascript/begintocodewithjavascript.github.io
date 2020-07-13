@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <!-- Rob's Nerves of Steel game Version 1.0 -->
+
 <head>
   <title>Ch04-09 Nerves of Steel</title>
   <link rel="stylesheet" href="styles.css">
@@ -17,15 +18,15 @@
     The timer will tick for between 5 and 20 seconds.
   </p>
   <p>
-    Sit down just before you think the timer will end. 
+    Sit down just before you think the timer will end.
   </p>
   <p>
-    Last player to sit down wins. Everyone else loses.  
+    Last player to sit down wins. Everyone else loses.
   </p>
   <p>
     <input type="button" value="START" onclick="doStartGame()" class="startButton"></button>
   </p>
-  <p id="statusParagraph"; class="gameStatus">
+  <p id="statusParagraph" ; class="gameStatus">
   </p>
 
   <!-- Sound element for the ticking clock -->
@@ -44,19 +45,19 @@
        Picks a delay time. Then starts the
        clock sound effect and sets the timout for the delay time
        */
-       function doStartGame() {
+    function doStartGame() {
 
       // update the status to "Ticking...."
       var statusElement = document.getElementById("statusParagraph");
-      statusElement.innerText="Ticking....";
+      statusElement.innerText = "Ticking....";
 
       // Play the ticking sound effect from the beginning
       tickSoundElement = document.getElementById("tickAudio");
-      tickSoundElement.currentTime=0;
+      tickSoundElement.currentTime = 0;
       tickSoundElement.play();
 
       // Calculate a delay between 5 and 15 seconds
-      var delayInSeconds = Math.floor(Math.random()*15)+5;
+      var delayInSeconds = Math.floor(Math.random() * 15) + 5;
 
       // Set a timeout for the delay. Note that setTimeout
       // works in thousandths of a second
@@ -68,7 +69,7 @@
        Stops the clock playing and plays the ding
        Clears the status display
        */
-       function onGameTimeOut() {
+    function onGameTimeOut() {
 
       // stop the clock ticking
       tickSoundElement = document.getElementById("tickAudio");
@@ -76,12 +77,12 @@
 
       // play the ding sound effect
       dingSoundElement = document.getElementById("dingAudio");
-      dingSoundElement.currentTime=0;
+      dingSoundElement.currentTime = 0;
       dingSoundElement.play();
 
       // Clear the status display to an empty string
       var statusElement = document.getElementById("statusParagraph");
-      statusElement.innerText="";
+      statusElement.innerText = "";
     }
   </script>
 </body>

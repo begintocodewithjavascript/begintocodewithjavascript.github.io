@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Ch07-08 Custom dice</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="customdice.js"></script>
+</head>
+
+<body>
+  <p class="menuHeading">Digital Dice</p>
+
+  <p class="menuText">
+    Min: 
+    <input class="menuInput" type="number" id="minNoText" value="1" min="1" max="100"> 
+    Max:  
+    <input class="menuInput" type="number" id="maxNoText" value="6" min="2" max="100">
+    <p>
+      <button class="menuText" onclick="doRollDice('minNoText','maxNoText', 'outputParagraph')">Roll the Dice</button>
+    </p>
+  </p>
+  
+  <p id="outputParagraph" class="numberDisplay">Press the roll button</p>
+  </p>
+
+  <script>
+
+  </script>
+</body>
+
+</html>

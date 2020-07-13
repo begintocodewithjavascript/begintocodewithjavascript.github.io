@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Ch07-11 Two Dice</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="twodice.js"></script>
+</head>
+
+<body>
+  <p class="menuHeading">Double Digital Dice</p>
+
+  <p class="menuText">
+    Dice 1 Min (1-99):
+    <input class="menuInput" type="number" id="d1MinNoText" value="1" min="1" max="99">
+    Dice 1 Max (2-100):
+    <input class="menuInput" type="number" id="d1MaxNoText" value="6" min="2" max="100">
+  <p id="d1OutputParagraph" class="numberDisplay">Press the roll button</p>
+  </p>
+
+  <p class="menuText">
+    Dice 2 Min (1-99):
+    <input class="menuInput" type="number" id="d2MinNoText" value="1" min="1" max="99">
+    Dice 2 Max (2-100):
+    <input class="menuInput" type="number" id="d2MaxNoText" value="6" min="2" max="100">
+  <p id="d2OutputParagraph" class="numberDisplay">Press the roll button</p>
+  </p>
+  <p>
+    <button class="menuText"
+      onclick="doRollDice('d1MinNoText','d1MaxNoText', 'd1OutputParagraph'); doRollDice('d2MinNoText','d2MaxNoText', 'd2OutputParagraph');">Roll
+      the Dice</button>
+  </p>
+  <script>
+  </script>
+</body>
+</html>

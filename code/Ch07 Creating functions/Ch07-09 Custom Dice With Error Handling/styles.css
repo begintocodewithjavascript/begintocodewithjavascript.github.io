@@ -1,0 +1,44 @@
+.menuHeading {
+    font-size: 4em;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: red;
+    text-shadow: 3px 3px 0 blue, 10px 10px 10px darkblue;
+}
+
+.menuText,.menuButton, .menuInput, menuInputError
+{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 2em;
+    color:black;
+}
+
+.menuText {
+    margin: 10px;
+}
+
+.menuInput {
+    background-color: white;
+    font-size: 1em;
+    width: 2em;
+}
+
+.menuInputError {
+    background-color: red;
+    font-size: 1em;
+    width: 2em;
+}
+
+
+.menuButton {
+    margin-left: 20px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.numberDisplay {
+    font-size:3em;
+    font-family: 'Courier New', Courier, monospace;text-align: center;
+    text-align: center;
+}
+
+
+

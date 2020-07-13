@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Ch07-02 Greeter Arguments</title>
+</head>
+
+<body>
+  <h1>Greeter</h1>
+  <p>
+  <p id="outputParagraph"></p>
+  </p>
+
+  <script>
+    function greeter(message) {
+      var outputElement = document.getElementById("outputParagraph");
+      outputElement.textContent = message;
+    }
+
+    function errorGreeter(message) {
+      if (message == undefined) {
+        alert("No argument to greeter");
+      }
+      else {
+        let outputElement = document.getElementById("outputParagraph");
+        outputElement.textContent = message;
+      }
+    }
+
+
+  </script>
+</body>
+
+</html>

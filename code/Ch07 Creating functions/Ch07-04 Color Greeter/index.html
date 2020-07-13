@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Ch07-04 Color Greeter</title>
+</head>
+
+<body>
+  <h1>Greeter</h1>
+  <p>
+  <p id="outputParagraph"></p>
+  </p>
+
+  <script>
+    function colorGreeter(message, colorName) {
+      var outputElement = document.getElementById("outputParagraph");
+      var elementColorStyle = "color:" + colorName;
+      outputElement.textContent = message;
+      outputElement.style = elementColorStyle;
+    }
+
+  </script>
+</body>
+
+</html>
