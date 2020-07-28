@@ -1,0 +1,71 @@
+.menuHeading {
+    font-size: 4em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color:magenta;
+    text-shadow: 3px 3px 0 cyan, 10px 10px 10px grey;
+}
+
+.menuText,.menuButton, .menuInput, .menuInputError, .menuLabel,.menuInputRight,.menuInputWrong,.menuTimesTableList,.scoresDisplay
+{
+    font-family:Arial, Helvetica, sans-serif;
+    color:black;
+    font-size: 30px;
+}
+
+.menuTimesTableList { 
+    margin: 20px;
+    list-style: none;
+}
+
+.menuLabel {
+    display:inline-block;
+    margin: 10px;
+}
+
+.menuText {
+    margin: 10px;
+}
+
+.menuTextError {
+    margin: 10px;
+    color: red;
+}
+
+.menuInput {
+    background-color: white;
+    width: 3em;
+}
+
+.menuInputError {
+    background-color: red;
+    width: 3em;
+}
+
+.menuInputRight {
+    background-color :green;
+    width: 3em;
+}
+
+.menuInputWrong {
+    background-color: red;
+    width: 3em;
+}
+
+.menuButton {
+    margin-left: 20px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.numberDisplay {
+    font-size:3em;
+    font-family: 'Courier New', Courier, monospace;text-align: center;
+    text-align: center;
+}
+
+.scoresDisplay{
+    margin-left: 20px;
+}
+
+
+
+

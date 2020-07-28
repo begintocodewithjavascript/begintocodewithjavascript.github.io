@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Ice Cream Sales</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="icecreamsales.js"></script>
+</head>
+
+<body onload="var standNames = doBuildSalesInputItems('salesItems',0, 10000,  
+  ['Riverside Walk', 'City Plaza','Central Park','Zoo Entrance',
+    'Main Library','North Station','New Theatre','Movie House']);">
+  <p class="menuHeading"> &#127846; Ice Cream Sales</p>
+
+  <div id="salesItems">
+  </div>
+
+  <p class="menuText" id="outputParagraph">
+
+  </p>
+
+  <p>
+    <button class="menuText" onclick="doCalc('salesItems','outputParagraph')">Calculate</button>
+  </p>
+
+</body>
+
+</html>
