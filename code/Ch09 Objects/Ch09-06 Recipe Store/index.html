@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Recipe Store</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="tinyData.js"></script>
+</head>
+
+
+<body onload='doLoad();'
+>
+  <p class="menuHeading"> &#127869;&#65039; Recipe Store</p>
+
+  <ul id="recipeItems">
+
+  </ul>
+
+  <p>
+    <button class="menuButton" onclick="doFind()">Find Recipe</button>
+    <button class="menuButton" onclick="doSave()">Save Recipe</button>
+  </p>
+
+  <script>
+    function doLoad(){
+      doBuildPage( "recipeItems", 
+      [ { id:"name", prompt:"Recipe name", type:"input"},
+       { id:"servings", prompt:"Servings", type:"input"},
+       { id:"time", prompt:"Time to prepare", type:"input"},
+       { id:"ingrdients", prompt:"Ingredients", type:"textarea", rows:"5", cols:"40"},
+       { id:"process", prompt:"Process", type:"textarea", rows:"5", cols:"40"} ] );
+       doStartTinyData("RecipeStore");
+    }
+  </script>
+
+</body>
+
+</html>

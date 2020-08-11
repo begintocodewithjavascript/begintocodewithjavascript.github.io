@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Game Scores</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="tinyData.js"></script>
+</head>
+
+
+<body onload='doLoad();'
+>
+  <p class="menuHeading"> &#127918; Game Scores</p>
+
+  <ul id="scoreItems">
+
+  </ul>
+
+  <p>
+    <button class="menuButton" onclick="doFind()">Find Score</button>
+    <button class="menuButton" onclick="doSave()">Save Score</button>
+  </p>
+
+  <script>
+    function doLoad(){
+      doBuildPage( "scoreItems", 
+      [ { id:"name", prompt:"Game Name", type:"input"},
+       { id:"score", prompt:"High Score", type:"input"},
+       { id:"Duration", prompt:"Time(mins)", type:"input"},
+       { id:"details", prompt:"Details", type:"textarea", rows:"5", cols:"40"} ] );
+       doStartTinyData("ScoreStore");
+    }
+  </script>
+
+</body>
+
+</html>

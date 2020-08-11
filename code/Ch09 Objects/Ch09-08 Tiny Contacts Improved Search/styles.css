@@ -1,0 +1,21 @@
+.menuHeading {
+    font-size: 4em;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: black;
+    text-shadow: 3px 3px blue, 10px 10px 10px grey;
+}
+
+.inputLabel,.inputText, .inputTextarea, .menuButton
+{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 2em;
+    color:black;
+}
+
+.inputLabel
+{
+    display:inline-block;
+    vertical-align: top;
+    width:6em;
+}
+

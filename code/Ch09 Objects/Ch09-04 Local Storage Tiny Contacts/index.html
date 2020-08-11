@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Tiny Contacts</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="tinycontacts.js"></script>
+</head>
+
+<body>
+  <p class="menuHeading"> &#128199; Tiny Contacts</p>
+
+  <p>
+    <label class="inputLabel" for="name">Name:</label>
+    <input class="inputText" id="name">
+  </p>
+
+  <p>
+    <label class="inputLabel" for="address">Address:</label>
+    <textarea class="inputTextarea" rows="5" cols="40" id="address"></textarea>
+  </p>
+
+  <p>
+    <label class="inputLabel" for="phone">Phone:</label>
+    <input class="inputText" id="phone">
+  </p>
+
+  <p>
+    <button class="menuButton" onclick="doFind()">Find Contact</button>
+    <button class="menuButton" onclick="doSave()">Save Contact</button>
+  </p>
+
+</body>
+
+</html>
