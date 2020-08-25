@@ -1,0 +1,64 @@
+
+.mainHeading {
+    font-size: 4em;
+    font-family: cursive;
+}
+
+.mainPage{
+    color: white;
+    background: black;
+}
+
+.menuPar{
+    margin:2px;
+}
+
+.menuButtonCaption
+{
+    margin:2px;
+    display:inline-block;
+    width:10em;
+}
+
+.pageTitle,.menuButtonCaption,.menuButton,.inputText,.inputLabel,.inputTextarea
+{
+    font-size: 2em;
+    font-family:Arial, Helvetica, sans-serif;
+    color: white;
+    background: black;
+}
+
+.menuButton
+{
+    margin:2px;
+    display:inline-block;
+    width:8em;
+}
+
+
+
+.pageTitle{
+    margin:5px;
+    font-size:4em;
+}
+
+.inputLabel
+{
+    display:inline-block;
+    vertical-align: top;
+    width:6em;
+}
+
+.itemButton
+{
+    color: white;
+    background: black;
+}
+
+.itemList
+{
+    margin:0;
+    font-size: 1.5em;
+    font-family: 'Courier New', Courier, monospace;
+    display:inline-block;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Fashion Shop Override Methodsk</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="stock.js"></script>
+</head>
+
+
+<body>
+  <p class="mainHeading"> &#128087; Fashion Shop</p>
+
+  <p class="bodyText">
+    This example works in exactly the same way as the previous one, but it uses overridden methods to make the code
+    simpler.
+    You can watch this in action by using the debugger to step through the calls of getDescription. Put a breakpoint on
+    the first line of the
+    getDescription method in the Dress class and then watch how the method calls the getDescription method in the
+    StockItem parent
+    to get the description of the parent object.
+  </p>
+  <pre class="sampleCode">
+myDress=new Dress(221,8,60,"Strapless evening dress","red","swirly",10);
+myPants=new Pants(222,1,45,"Good for the workplace","black","plain",30,30);
+console.log(myDress.getDescription());
+console.log(myPants.getDescription());
+      </pre>
+
+  <p class="bodyText">
+    Select these statements, copy them and paste them into the Developer View console to run them.
+  </p>
+
+</body>
+
+</html>

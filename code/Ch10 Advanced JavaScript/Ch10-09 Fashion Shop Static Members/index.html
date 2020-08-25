@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Fashion Shop Static Members</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="stock.js"></script>
+</head>
+
+
+<body>
+  <p class="mainHeading"> &#128087; Fashion Shop</p>
+
+  <p class="bodyText">
+    The Dress and Pants classes in this example both contain static getTestItems methods that generate test data.
+    We can use them to add test data to an empty array to create a large number of stock items for testing the
+    application.
+  </p>
+
+  <pre class="sampleCode">
+  demo = []
+  Dress.getTestItems(demo);
+  Pants.getTestItems(demo);
+  for (item of demo) {
+      console.log(item.getDescription());
+  }</pre>
+
+  <p class="bodyText">
+    Select these statements, copy them and paste them into the Developer View console to run them.
+  </p>
+  <p class="bodyText">
+    You can set a breakpoint in the code and perform a statement at a time to discover exactly how the code runs.
+  </p>
+
+</body>
+
+</html>
