@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<!-- Fetch the weather informaton -->
+
+<head>
+  <title>Ch11-09 Weather Finally</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <h1>&#9730;&#65039; Weather</h1>
+  <p id="resultParagraph" class="result">
+  </p>
+  <p>
+    <input id="fetchButton" type="button" value="FETCH" onclick="doGetWeather('https://www.begintocodewithjavascript.com/weather.html')" class="startButton"></button>
+  </p>
+
+<script>
+
+    function doGetWeather(url) {
+
+      let fetchButton = document.getElementById('fetchButton');
+      fetchButton.setAttribute("disabled","");
+
+      fetch(url).then(response => {
+        if (!response.ok) {
+          alert("Fetch failed");
+          return;
+        }
+        response.json().then(weather => {
+          let resultParagraph = document.getElementById('resultParagraph');
+          resultParagraph.innerText = "Temp: " + weather.main.temp;
+        }).catch(error => alert("Bad JSON: " + error)); // json error handler
+      }).catch(error => alert("Bad fetch: " + error)) // fetch error handler
+      .finally( message => {
+        let fetchButton = document.getElementById('fetchButton');
+        fetchButton.removeAttribute("disabled");
+      })
+    }
+
+  </script>
+</body>
+
+</html>

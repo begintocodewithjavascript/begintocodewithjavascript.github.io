@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ch11-16 Addition Application</title>
+</head>
+
+<body>
+    <h1>Web service client demo</h1>
+    <p>Uses a server to add two numbers togther.</p>
+    <p>
+        <button onclick="doAddition()">Add 2 and 3</button>
+    </p>
+
+    <p id="resultParagraph">
+        Result displayed here.
+    </p>
+
+    <script>
+        function doAddition() {
+
+var url = "http://localhost:8080/docalc.html?no1=2&no2=3";
+
+fetch(url).then(response => {
+    response.text().then(result => {
+        let resultParagraph = document.getElementById('resultParagraph');
+        resultParagraph.innerText = "Result: " + result;
+    }).catch(error => alert("Bad text: " + error)); // text error handler
+}).catch(error => alert("Bad fetch: " + error)); // fetch error handler
+        }
+    </script>
+</body>
+
+</html>

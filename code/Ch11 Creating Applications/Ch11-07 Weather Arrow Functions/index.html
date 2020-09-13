@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<!-- Fetch the weather informaton -->
+
+<head>
+  <title>Ch11-07 Weather Arrow Functions</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body onload="doGetWeather();">
+  <h1>&#9730;&#65039; Weather</h1>
+  <p id="resultParagraph" class="result">
+  </p>
+  <p>
+    <input type="button" value="FETCH" onclick="doGetWeather('https://www.begintocodewithjavascript.com/weather.html')" class="startButton"></button>
+  </p>
+
+  <script>
+
+    function doGetWeather(url) {
+
+      fetch(url).then(response => {
+        if (!response.ok) {
+          alert("fetch failed");
+          return;
+        }
+        response.json().then(weather => {
+          let resultParagraph = document.getElementById('resultParagraph');
+          resultParagraph.innerText = "Temp: " + weather.main.temp;
+        });
+      });
+    }
+
+  </script>
+</body>
+
+</html>

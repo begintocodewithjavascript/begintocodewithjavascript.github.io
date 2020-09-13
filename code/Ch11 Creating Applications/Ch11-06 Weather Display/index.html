@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<!-- Fetch the weather informaton -->
+
+<head>
+  <title>Ch11-06 Weather Display</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <h1>&#9730;&#65039; Weather</h1>
+  <p id="resultParagraph" class="result">
+  </p>
+  <p>
+    <input type="button" value="FETCH" onclick="doGetWeather()" class="startButton"></button>
+  </p>
+
+<script>
+
+    function doGotWeatherObject(weather) {
+      // get a reference to the result paragraph
+      let resultParagraph = document.getElementById('resultParagraph');
+      // display the temperature from the weather
+      resultParagraph.innerText = "Temp: " + weather.main.temp;
+    }
+
+    function doGotWeatherResponse(response) {
+      // check the response is OK
+      if (!response.ok) {
+        alert("fetch failed");
+        return;
+      }
+
+      // fetch the JSON encoded object
+      var jsonPromise = response.json();
+      jsonPromise.then(doGotWeatherObject);
+    }
+
+    function doGetWeather() {
+
+      // start the fetch
+      var fetchPromise = fetch('https://www.begintocodewithjavascript.com/weather.html');
+
+      // add the handler for when the fetch promise is fulfilled
+      fetchPromise.then(doGotWeatherResponse);
+    }
+
+  </script>
+</body>
+
+</html>

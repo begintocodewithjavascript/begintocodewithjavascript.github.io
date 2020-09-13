@@ -22,7 +22,7 @@ function loadDataStore() {
     dataStore = [];
 
     try {
-        var dataArray=JSON.parse(dataArrayJSON);
+        var dataArray = JSON.parse(dataArrayJSON);
 
         for (dataLine of dataArray) {
             dataStore[dataStore.length] = StockItem.JSONparse(dataLine);
@@ -40,8 +40,7 @@ function loadDataStore() {
 function saveDataStore() {
     var dataArray = [];
 
-    for(item of dataStore)
-    {
+    for (item of dataStore) {
         dataArray[dataArray.length] = item.JSONstringify();
     }
 
@@ -135,27 +134,34 @@ function doAddTop() {
     addStock(Top);
 }
 
-function doListFashionShop() {
+function createListElement(item) {
+    let resultPar = document.createElement("p");
 
-    openPage("Stock List");
+    let openButton = document.createElement("button");
+    openButton.innerText = "Update";
+    openButton.className = "itemButton";
+    let editFunctionCall = "doUpdateItem('" + item.stockRef + "')";
+    openButton.setAttribute("onclick", editFunctionCall);
+    resultPar.appendChild(openButton);
 
-    for (let item of dataStore) {
-        let itemPar = document.createElement("p");
+    let detailsElement = document.createElement("p");
+    detailsElement.innerText = item.getDescription();
+    detailsElement.className = "itemList";
+    resultPar.appendChild(detailsElement);
 
-        let openButton = document.createElement("button");
-        openButton.innerText = "Update";
-        openButton.className = "itemButton";
-        let editFunctionCall = "doUpdateItem('" + item.stockRef + "')";
-        openButton.setAttribute("onclick", editFunctionCall);
-        itemPar.appendChild(openButton);
+    return resultPar;
+}
 
-        let detailsElement = document.createElement("p");
-        detailsElement.innerText = item.getDescription();
-        detailsElement.className = "itemList";
-        itemPar.appendChild(detailsElement);
-
+function createList(heading, items) {
+    openPage(heading);
+    for (let item of items) {
+        let itemPar = createListElement(item);
         mainPage.appendChild(itemPar);
     }
+}
+
+function doListFashionShop() {
+    createList("Stock List", dataStore);
 }
 
 function findItem(stockRef) {
@@ -242,7 +248,7 @@ function doStartFashionShop(mainPageId, storeNameToUse) {
 
     var loadResult = loadDataStore();
 
-    switch(loadResult){
+    switch (loadResult) {
         case STORE_LOAD_OK:
             break;
         case STORE_EMPTY:
@@ -255,6 +261,7 @@ function doStartFashionShop(mainPageId, storeNameToUse) {
             break;
     }
 
+    doMakeTestFashionShop();
     doShowMainMenu();
 }
 
