@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Ch12-01 Empty Canvas</title>
+</head>
+
+<body >
+  <h1>Empty Canvas</h1>
+  <canvas id="canvas" width="800" height="600">
+    This browser does not support a canvas.
+  </canvas>
+
+  <script>
+
+
+
+    function drawLine(startX, startY, endX, endY){
+      var canvas = document.getElementById("canvas");
+      if(canvas.getContext){
+        var context = canvas.getContext('2d');
+        context.beginPath();
+        context.moveTo(startX,startY);
+        context.lineTo(endX,endY);
+        context.stroke();
+      }
+    }
+  </script>
+
+</body>
+
+</html>

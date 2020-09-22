@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Ch12-02 Art Maker</title>
+</head>
+
+<body onload="doDrawArt()">
+<canvas id="canvas" width="800" height="600">
+  This browser does not support a canvas.
+</canvas>
+
+  <script>
+
+    var canvasWidth = 800;
+    var canvasHeight = 600;
+    var context;
+
+    function getRandomInt(min, max) {
+      var range = max - min + 1;
+      var result = Math.floor(Math.random() * (range)) + min;
+      return result;
+    }
+
+    function getRandomColor() {
+      var r = getRandomInt(0,255);
+      var g = getRandomInt(0,255);
+      var b = getRandomInt(0,255);
+      return "rgb("+r+","+g+","+b+")";
+    }
+
+    function drawDot(x, y, radius, style){
+      context.beginPath();
+      context.arc(x, y, radius, 0, 2 * Math.PI);
+      context.fillStyle=style;
+      context.fill();
+    }
+
+    function drawRandomDot(){
+      var radius = getRandomInt(5, 100);
+      var x = getRandomInt(radius, canvasWidth-radius);
+      var y = getRandomInt(radius, canvasHeight-radius);
+      var color = getRandomColor();
+      drawDot(x,y,radius,color);
+    }
+
+    function drawLine(startX, startY, endX, endY, style, linewidth) {
+      context.beginPath();
+      context.moveTo(startX, startY);
+      context.lineTo(endX, endY);
+      context.strokeStyle = style;
+      context.lineWidth = linewidth;
+      context.stroke();
+    }
+
+    function drawRandomLine() {
+      var startX = getRandomInt(0, canvasWidth);
+      var startY = getRandomInt(0, canvasHeight);
+      var endX = getRandomInt(0, canvasWidth);
+      var endY = getRandomInt(0, canvasHeight);
+      var color = getRandomColor();
+      var thickness = getRandomInt(1,6);
+      drawLine( startX, startY, endX, endY, color, thickness);
+    }
+
+
+    function doDrawArt() {
+      var canvas = document.getElementById("canvas");
+      if (canvas.getContext) {
+        // We have a canvas to work with 
+        context = canvas.getContext('2d');
+        for (let i = 0; i < 100; i = i + 1) {
+          drawRandomDot();
+          drawRandomLine();
+        }
+      }
+    }
+  </script>
+</body>
+</html>
