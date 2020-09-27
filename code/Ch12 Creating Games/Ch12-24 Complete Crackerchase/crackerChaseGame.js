@@ -273,7 +273,7 @@ class CrackerChaseGame {
         this.sprites[this.sprites.length] = this.background;
 
         for (let i = 0; i < 30; i = i + 1) {
-            this.sprites[this.sprites.length] = new Cracker(this, 'images/cracker.png');;
+            this.sprites[this.sprites.length] = new Cracker(this, 'images/cracker.png', 'sounds/burp.wav');;
         }
 
         for (let tomatoCount = 0; tomatoCount < 5; tomatoCount = tomatoCount + 1) {

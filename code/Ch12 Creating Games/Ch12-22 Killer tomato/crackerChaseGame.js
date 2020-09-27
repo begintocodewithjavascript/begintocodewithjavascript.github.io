@@ -73,26 +73,6 @@ class Cracker extends Sprite {
     draw() {
         this.game.context.drawImage(this.image, this.x, this.y, this.width, this.height);
     }
-
-    getInitialisePromisex() {
-        var imagePromise = super.getInitialisePromise();
-
-        var soundPromise =  new Promise((resolve, reject) => {
-            this.audio = new Audio();
-            this.audio.src = this.audioURL;
-            console.log("Loading " + this.audio.src)
-            this.audio.onload = () => {
-                console.log("audio loaded");
-                resolve(true);
-            }
-            this.audio.onerror = () => reject(new Error('Could not load' + this.url));
-        });
-
-        var promiseList = [ soundPromise ];
-
-        return Promise.all(promiseList);
-    }
-
 }
 
 class Tomato extends Sprite {
@@ -259,7 +239,7 @@ class CrackerChaseGame {
         this.sprites[this.sprites.length] = this.background;
 
         for (let i = 0; i < 30; i = i + 1) {
-            this.sprites[this.sprites.length] = new Cracker(this, 'images/cracker.png');;
+            this.sprites[this.sprites.length] = new Cracker(this, 'images/cracker.png', 'sounds/burp.wav');;
         }
 
         this.tomato = new Tomato(this, 'images/tomato.png');
