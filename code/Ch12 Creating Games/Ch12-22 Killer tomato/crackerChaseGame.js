@@ -242,7 +242,7 @@ class CrackerChaseGame {
             this.sprites[this.sprites.length] = new Cracker(this, 'images/cracker.png', 'sounds/burp.wav');;
         }
 
-        this.tomato = new Tomato(this, 'images/tomato.png');
+        this.tomato = new Tomato(this, 'images/redtomato.png');
         this.sprites[this.sprites.length] = this.tomato;
 
         this.cheese = new Cheese(this, 'images/cheese.png');
