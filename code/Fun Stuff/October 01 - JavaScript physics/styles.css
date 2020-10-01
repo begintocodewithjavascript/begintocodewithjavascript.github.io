@@ -1,0 +1,14 @@
+.menuHeading {
+    font-size: 4em;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: darkgray;
+    text-shadow: 3px 3px blue, 10px 10px 10px grey;
+}
+
+.bodyText
+{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 2em;
+    color:black;
+}
+

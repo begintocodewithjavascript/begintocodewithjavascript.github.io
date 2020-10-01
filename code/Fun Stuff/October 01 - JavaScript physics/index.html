@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Hull Makerspace Maketober October 1st Rob Miles</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/matter-js@0.14.2/build/matter.min.js"></script>
+</head>
+<body onload="doGame()">
+    <p class="menuHeading">Hull Makerspace Maketober October 1st</p>
+    <p class="menuHeading">JavaScript Physics</p>
+    <p class="bodyText">My first ever JavaScript program using a physics engine.</p>
+    <p class="bodyText">Based on a demo of the <a href="https://brm.io/matter-js"> Matter.js</a> engine</p>
+    <p class="bodyText"><a href="https:www.robmiles.com">Rob Miles</a></p>
+
+<script>
+    function doGame() {
+        console.log("Game running");
+        var Engine = Matter.Engine,
+        Render = Matter.Render,
+        Runner = Matter.Runner,
+        Composites = Matter.Composites,
+        Common = Matter.Common,
+        MouseConstraint = Matter.MouseConstraint,
+        Mouse = Matter.Mouse,
+        World = Matter.World,
+        Bodies = Matter.Bodies;
+
+        // create an engine
+        var engine = Engine.create();
+
+        // create a world
+        var world = engine.world;
+
+        // create a renderer
+        var render = Render.create({
+        element: document.body,
+        engine: engine,
+        options: {
+            width: 800,
+            height: 600,
+            background: '#0f0f13',
+            showAngleIndicator: false,
+            wireframes: false
+        }
+    });
+
+    Render.run(render);
+
+    var runner = Runner.create();
+    Runner.run(runner, engine);
+
+    // add bodies
+    var offset = 10,
+        options = { 
+            isStatic: true
+        };
+
+    world.bodies = [];
+
+    // these static walls will not be rendered in this sprites example, see options
+    World.add(world, [
+        Bodies.rectangle(400, -offset, 800.5 + 2 * offset, 50.5, options),
+        Bodies.rectangle(400, 600 + offset, 800.5 + 2 * offset, 50.5, options),
+        Bodies.rectangle(800 + offset, 300, 50.5, 600.5 + 2 * offset, options),
+        Bodies.rectangle(-offset, 300, 50.5, 600.5 + 2 * offset, options)
+    ]);
+
+    var stack = Composites.stack(150, 20, 5, 4, 0, 0, function(x, y) {
+            return Bodies.circle(x, y, 46, {
+                density: 0.05,
+                frictionAir: 0.06,
+                restitution: 0.3,
+                friction: 0.001,
+                render: {
+                    sprite: {
+                        texture: 'images/HullMakerspaceSmall.png'
+                    }
+                }
+            });
+    });
+
+    World.add(world, stack);
+
+    // add mouse control
+    var mouse = Mouse.create(render.canvas),
+        mouseConstraint = MouseConstraint.create(engine, {
+            mouse: mouse,
+            constraint: {
+                stiffness: 0.2,
+                render: {
+                    visible: false
+                }
+            }
+        });
+
+    World.add(world, mouseConstraint);
+
+    // keep the mouse in sync with rendering
+    render.mouse = mouse;
+
+    // fit the render viewport to the scene
+    Render.lookAt(render, {
+        min: { x: 0, y: 0 },
+        max: { x: 800, y: 600 }
+    });
+
+   
+    }
+</script>
+</body>
+
+</html>
