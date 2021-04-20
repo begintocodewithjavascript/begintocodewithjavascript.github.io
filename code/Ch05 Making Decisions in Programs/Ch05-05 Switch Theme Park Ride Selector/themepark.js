@@ -62,7 +62,7 @@ function doCheckAge() {
             }
             else {
                 // get here if the age is 12 or above
-                if (ageNo > 70) {
+                if (ageNo > 90) {
                     resultElement.className = "menuNo";
                     resultElement.innerText = "You are too old for the Regurgitator";
                 }

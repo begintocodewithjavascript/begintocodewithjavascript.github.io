@@ -20,12 +20,10 @@ function doCheckAge() {
         // test the age and update the component
         if (ageNo < minAgeNo) {
             rideElement.className = "menuNo";
-        }
-        else {
+        } else {
             if (ageNo > maxAgeNo) {
                 rideElement.className = "menuNo";
-            }
-            else {
+            } else {
                 rideElement.className = "menuYes";
             }
         }

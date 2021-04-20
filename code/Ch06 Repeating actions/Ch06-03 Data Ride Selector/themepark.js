@@ -26,8 +26,7 @@ function doCheckAge() {
     else{
         if(ageNo>carinvalMaxAgeNo){
             carnivalCarouselElement.className="menuNo";
-        }
-        else{
+        } else{
             carnivalCarouselElement.className="menuYes";
         }
     }

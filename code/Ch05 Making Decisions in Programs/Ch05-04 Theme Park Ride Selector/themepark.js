@@ -21,8 +21,7 @@ function doCheckAge() {
         if (ageNo < 3) {
             resultElement.className = "menuNo";
             resultElement.innerText = "You are too young for the Carnival Carousel";
-        }
-        else {
+        } else {
             resultElement.className = "menuYes";
             resultElement.innerText = "You can go on the Carnival Carousel";
         }
@@ -32,8 +31,7 @@ function doCheckAge() {
         if (ageNo < 6) {
             resultElement.className = "menuNo";
             resultElement.innerText = "You are too young for the Jungle Adventure Water Splash";
-        }
-        else {
+        } else {
             resultElement.className = "menuYes";
             resultElement.innerText = "You can go on the Jungle Adventure Water Splash";
         }
@@ -43,8 +41,7 @@ function doCheckAge() {
         if (ageNo < 12) {
             resultElement.className = "menuNo";
             resultElement.innerText = "You are too young for the Downhill Mountain Run";
-        }
-        else {
+        } else {
             resultElement.className = "menuYes";
             resultElement.innerText = "You can go on the Downhill Mountain Run";
         }
@@ -54,14 +51,12 @@ function doCheckAge() {
         if (ageNo < 12) {
             resultElement.className = "menuNo";
             resultElement.innerText = "You are too young for the Regurgitator";
-        }
-        else {
+        } else {
             // get here if the age is 12 or above
-            if (ageNo > 70) {
+            if (ageNo > 90) {
                 resultElement.className = "menuNo";
                 resultElement.innerText = "You are too old for the Regurgitator";
-            }
-            else {
+            } else {
                 resultElement.className = "menuYes";
                 resultElement.innerText = "You can go on the Regurgitator";
             }

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Connected Little Boxes Terminal</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="terminal.js"></script>
+</head>
+
+<body>
+    <p>
+        <label class="inputLabel" for="Terminal">Terminal:</label>
+        <textarea onkeypress="doKeypress();" class="inputTextarea" rows="5" cols="40" id="terminal"></textarea>
+    </p>
+    <p>
+        <button class="menuButton" onclick="doConnect();">Connect</button>
+        <button class="menuButton" onclick="doDoDisconnect();">Disconnect</button>
+    </p>
+</body>
+
+</html>
