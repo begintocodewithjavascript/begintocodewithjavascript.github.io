@@ -1,7 +1,7 @@
 function makeInputPar(labelText, min, max) {
-    var inputPar = document.createElement("p");
+    let inputPar = document.createElement("p");
 
-    var labelElement = document.createElement("label");
+    let labelElement = document.createElement("label");
     labelElement.innerText = labelText + " (" + min + "-" + max + "):";
     labelElement.className = "menuLabel";
     labelElement.setAttribute("for", labelText);
@@ -21,7 +21,7 @@ function makeInputPar(labelText, min, max) {
 
 
 function doBuildSalesInputItems(containerElementID, min, max, noOfItems) {
-    var containerElement = document.getElementById(containerElementID);
+    let containerElement = document.getElementById(containerElementID);
 
     for (let itemCount = 1; itemCount <= noOfItems; itemCount = itemCount + 1) {
         let labelText = "Sales " + itemCount;
@@ -31,7 +31,7 @@ function doBuildSalesInputItems(containerElementID, min, max, noOfItems) {
 }
 
 function getHighest(inputArray) {
-    var max = inputArray[0];
+    let max = inputArray[0];
 
     for (let value of inputArray) {
         if (value > max) {
@@ -53,7 +53,7 @@ function getLowest(inputArray) {
 }
 
 function getTotal(inputArray) {
-    var total = 0;
+    let total = 0;
     for (let value of inputArray) {
         total = total + value;
     }
@@ -62,7 +62,7 @@ function getTotal(inputArray) {
 
 function getNumberFromElement(element) {
 
-    var text = element.value;
+    let text = element.value;
 
     var result = Number(text);
 
@@ -96,7 +96,7 @@ function doCalc() {
 
     var salesElement = document.getElementById('salesItems');
 
-    for (const item of salesElement.children) {
+    for (let item of salesElement.children) {
 
         let salesValue = getNumberFromElement(item.children[1]);
 

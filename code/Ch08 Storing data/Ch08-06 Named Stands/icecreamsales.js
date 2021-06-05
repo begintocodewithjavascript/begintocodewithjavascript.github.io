@@ -95,7 +95,7 @@ function doCalc() {
 
     var salesElement = document.getElementById('salesItems');
 
-    for (const item of salesElement.children) {
+    for (let item of salesElement.children) {
 
         let salesValue = getNumberFromElement(item.children[1]);
 

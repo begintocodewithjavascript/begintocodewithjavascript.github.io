@@ -260,8 +260,6 @@ function doStartFashionShop(mainPageId, storeNameToUse) {
             saveDataStore();
             break;
     }
-
-    doMakeTestFashionShop();
     doShowMainMenu();
 }
 
