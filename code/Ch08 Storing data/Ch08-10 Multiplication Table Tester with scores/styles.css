@@ -5,14 +5,14 @@
     text-shadow: 3px 3px 0 cyan, 10px 10px 10px grey;
 }
 
-.menuText,.menuButton, .menuInput, .menuInputError, .menuLabel,.menuInputRight,.menuInputWrong,.menuTimesTableList
+.menuText,.menuButton, .menuInput, .menuInputError, .menuLabel,.menuInputRight,.menuInputWrong,.menuMultiplicationTableList,.scoresDisplay
 {
     font-family:Arial, Helvetica, sans-serif;
     color:black;
     font-size: 30px;
 }
 
-.menuTimesTableList { 
+.menuMultiplicationTableList { 
     margin: 20px;
     list-style: none;
 }
@@ -62,7 +62,8 @@
     text-align: center;
 }
 
-
-
+.scoresDisplay{
+    margin-left: 20px;
+}
 
 

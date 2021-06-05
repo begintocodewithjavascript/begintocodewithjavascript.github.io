@@ -49,7 +49,7 @@ function removeChildren(element){
         element.removeChild(element.children[0]);
 }
 
-function makeTimesTables(containerElementID, tableNoElementID, tableCountElementID)
+function makeMultiplicationTables(containerElementID, tableNoElementID, tableCountElementID)
 {
     var containerElement = document.getElementById(containerElementID);
 
@@ -95,9 +95,9 @@ function makeTimesTables(containerElementID, tableNoElementID, tableCountElement
 }
 
 
-function checkTimesTables(containerElementID,scoresElementID) {
+function checkMultiplicationTables(containerElementID,scoresElementID) {
 
-    // get the times table list
+    // get the multiplication table list
     var containerElement = document.getElementById(containerElementID);
 
     var count = 0;
