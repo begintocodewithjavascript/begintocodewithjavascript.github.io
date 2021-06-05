@@ -19,7 +19,6 @@ function makeInputPar(labelText, min, max) {
     return inputPar;
 }
 
-
 function doBuildSalesInputItems(containerElementID, min, max, noOfItems) {
     let containerElement = document.getElementById(containerElementID);
 
